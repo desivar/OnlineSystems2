@@ -3,11 +3,8 @@ require('dotenv').config();
 
 const connectDB = async () => {
   try {
-    console.log('MONGO_URI:', process.env.MONGO_URI); // Add this line for debugging.
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    console.log('MONGO_URI:', process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI); // Remove the options
     console.log('MongoDB connected');
   } catch (error) {
     console.error('MongoDB connection error:', error);
